@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/services/auth_service.dart';
 
 class SignupScreen extends StatefulWidget {
   static final String id = 'signup_screen';
@@ -19,6 +20,7 @@ class _SignupScreenState extends State<SignupScreen> {
       print(_email);
       print(_password);
       // Logging in the user
+      AuthService.signUpUser(context, _name, _email, _password);
     }
   }
 
