@@ -95,6 +95,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
+                       
+            Text(
+              'Forgot Password',
+              style: TextStyle(fontSize: 20,),
+            ),
           ],
         ),
       ),
