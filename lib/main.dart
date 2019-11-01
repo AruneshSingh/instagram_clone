@@ -10,16 +10,14 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   Widget _getScreenID() {
     return StreamBuilder<FirebaseUser>(
-      stream: FirebaseAuth.instance.onAuthStateChanged,
-      builder: (BuildContext context, snapshot) {
-        if (snapshot.hasData) {
-          return HomeScreen(userId: snapshot.data.uid);
-        }
-        else {
-          return LoginScreen();
-        }
-      }
-    );
+        stream: FirebaseAuth.instance.onAuthStateChanged,
+        builder: (BuildContext context, snapshot) {
+          if (snapshot.hasData) {
+            return HomeScreen(userId: snapshot.data.uid);
+          } else {
+            return LoginScreen();
+          }
+        });
   }
 
   @override
@@ -27,6 +25,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Instagram Clone',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryIconTheme: Theme.of(context).primaryIconTheme.copyWith(
+              color: Colors.black,
+            ),
+      ),
       home: _getScreenID(),
       routes: {
         LoginScreen.id: (context) => LoginScreen(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/models/user_models.dart';
+import 'package:instagram_clone/screens/edit_profile_screen.dart';
 import 'package:instagram_clone/utilities/constants.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -18,8 +19,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: FutureBuilder(
         future: usersRef.document(widget.userId).get(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if(!snapshot.hasData){
-            return Center(child: CircularProgressIndicator(),);
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           }
           User user = User.fromDoc(snapshot.data);
           return ListView(
@@ -89,7 +92,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Container(
                             width: 200,
                             child: FlatButton(
-                              onPressed: () => print('Edit Profile'),
+                              onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => EditProfileScreen(
+                                    user: user,
+                                  ),
+                                ),
+                              ),
                               color: Colors.blue,
                               textColor: Colors.white,
                               child: Text(
