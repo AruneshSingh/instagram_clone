@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/models/user_models.dart';
 import 'package:instagram_clone/services/database_services.dart';
@@ -13,6 +14,7 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   final _formKey = GlobalKey<FormState>();
+  File _profileImage;
   String _name = '';
   String _bio = '';
 
@@ -21,6 +23,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     super.initState();
     _name = widget.user.name;
     _bio = widget.user.bio;
+  }
+
+  _handleImageFromGallery() async {
+    
   }
 
   _submit() {

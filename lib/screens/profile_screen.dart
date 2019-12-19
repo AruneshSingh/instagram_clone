@@ -1,3 +1,4 @@
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/models/user_models.dart';
 import 'package:instagram_clone/screens/edit_profile_screen.dart';
@@ -31,11 +32,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
                 child: Row(
                   children: <Widget>[
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage: NetworkImage(
-                          'https://pbs.twimg.com/profile_images/814263074639187968/Ioh1Qvuc_400x400.jpg'),
-                    ),
+                    // CircleAvatar(
+                    //   radius: 50,
+                    //   backgroundColor: Colors.grey,
+                    //   backgroundImage: user.profileImageUrl.isEmpty
+                    //       ? AssetImage('assets/images/user_placeholder.jpg')
+                    //       : CachedNetworkImageProvider(user.profileImageUrl),
+                    // ),
                     Expanded(
                       child: Column(
                         children: <Widget>[
